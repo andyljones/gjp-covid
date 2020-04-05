@@ -32,10 +32,11 @@
         width: 100%;
         font-family: sans-serif;
         text-align: center;
+        margin: 10px;
       }
 
       .stats {
-        font-size: xx-large;
+        font-size: x-large;
       }
 
       .context {
@@ -53,30 +54,26 @@
     <title>GJP COVID Estimates</title>
   </head>
   <body>
-      <div class="header">
-      <p>By next April, it is forecast that COVID-19 will have lead to </p>
-      </div>
+      <div class="context">
+        <p>By next April, it is forecast that COVID-19 will have lead to </p>
 
-      <div class="stats">
-        <p><emph>{{us_cases}}</emph> cases and <emph>{{us_deaths}}</emph> deaths in the United States</p>
-      </div>
+        <div class="stats">
+          <p><emph>{{us_cases}}</emph> cases and <emph>{{us_deaths}}</emph> deaths in the United States</p>
+        </div>
 
-      <div class="header">
-      and
-      </div>
+        <p>and</p>
 
-      <div class="stats">
-        <p><emph>{{world_cases}}</emph> cases and <emph>{{world_deaths}}</emph> deaths worldwide</p>
-      </div>
+        <div class="stats">
+          <p><emph>{{world_cases}}</emph> cases and <emph>{{world_deaths}}</emph> deaths worldwide</p>
+        </div>
 
-      <div class="footer">
-      <p>These estimates come from averaging the <a href="https://goodjudgment.io/covid/dashboard/">Good Judgement Project's dashboard</a>.</p>
-      
-      <p>They were last updated on {{pub_date}}.</p>
+        <p>These estimates come from averaging the <a href="https://goodjudgment.io/covid/dashboard/">Good Judgement Project's dashboard</a>.</p>
+        
+        <p>They were last updated on {{pub_date}}.</p>
         
         <p>The Good Judgement Project has <a href="https://aiimpacts.org/evidence-on-good-forecasting-practices-from-the-good-judgment-project/">a track record of producing better, more accurate forecasts than anyone else</a>.</p>
         
-        <p>In the face of an exponentially-growing threat, forecasts - while uncertain - are <a href="https://andyljones.com/posts/headlines.html">far more informative than today's case count and death toll</a>.</p>
+        <p>In the face of an exponentially-growing threat, forecasts - while uncertain - are far more useful than today's case count and death toll.</p>
       </div>
     
   </body>
