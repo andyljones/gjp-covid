@@ -54,7 +54,6 @@ def render():
 
     Path('index.html').write_text(rendered)
 
-
-
-
-
+if __name__ == '__main__':
+    print('Rendering...')
+    render()
