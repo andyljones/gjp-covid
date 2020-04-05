@@ -1,0 +1,5 @@
+#!/bin/sh
+cd "$(dirname "$0")"
+
+. activate ./.env 
+python publish.py 
