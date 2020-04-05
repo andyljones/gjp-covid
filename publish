@@ -5,10 +5,10 @@ eval "$(conda shell.bash hook)"
 conda activate ./.env 
 python render.py 
 
-GIT_COMMITTER_NAME="Auto-Andy Jones" 
-GIT_COMMITTER_EMAIL="andyjones.ed+auto@gmail.com"
-GIT_AUTHOR_NAME="Auto-Andy Jones" 
-GIT_AUTHOR_EMAIL="andyjones.ed+auto@gmail.com"
+export GIT_COMMITTER_NAME="Auto-Andy Jones" 
+export GIT_COMMITTER_EMAIL="andyjones.ed+auto@gmail.com"
+export GIT_AUTHOR_NAME="Auto-Andy Jones" 
+export GIT_AUTHOR_EMAIL="andyjones.ed+auto@gmail.com"
 
 git commit -am "Update"
 git push
