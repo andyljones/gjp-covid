@@ -4,9 +4,12 @@ import requests
 import jinja2
 from bs4 import BeautifulSoup
 from pathlib import Path
+import re
 
 URL = 'https://goodjudgment.io/covid/dashboard/bin/loadSub.php'
+DATE = 'https://goodjudgment.io/analytics2/data/public/c37740.html'
 
+# Right boudnary on cases is the total population
 # Right boundary on deaths is the same ratio to the stated boundary as cases
 BOUNDARIES = pd.DataFrame([
     [1, 5.3e6, 53e6, 530e6, 5.3e9, 7.8e9],
@@ -28,7 +31,15 @@ def prettify(x):
 
     return head + suffix
 
-def fetch(date):
+def pub_date():
+    r = requests.get(DATE)
+    r.raise_for_status()
+
+    soup = BeautifulSoup(r.content, features='html5lib')
+    datestr = soup.select_one('table td span span').text.strip()
+    return pd.to_datetime(re.sub(r'\s+', ' ', datestr)).strftime('%Y/%m/%d')
+
+def fetch():
     r = requests.get(URL)
     r.raise_for_status()
     soup = BeautifulSoup(r.content, features='html5lib')
@@ -40,7 +51,7 @@ def fetch(date):
         'fractions': [int(t.attrs['style'][6:-2])/100 for t in soup.select('.prob')]})
 
 def central_estimates():
-    df = fetch(pd.Timestamp.now().floor('H'))
+    df = fetch()
 
     # Geometric averages
     df['mid'] = (df.lower*df.upper)**.5
@@ -50,7 +61,7 @@ def render():
     template = jinja2.Template(Path('template.j2').read_text())
 
     central = central_estimates().apply(prettify)
-    rendered = template.render(**central)
+    rendered = template.render(**central, pub_date=pub_date())
 
     Path('index.html').write_text(rendered)
 
