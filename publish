@@ -1,7 +1,7 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 
-. activate ./.env 
+conda activate ./.env 
 python render.py 
 
 git commit -am "Update"
