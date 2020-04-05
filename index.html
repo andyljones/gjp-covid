@@ -9,26 +9,60 @@
     <link rel="icon" href="/favicon.ico">
 
     <style>
-    
+      html {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        background: #F8F8F8;
+        color: #444;
+        width: 100%;
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+      .header {
+        font-size: large;
+      }
+
+      .stats {
+        font-size: x-large;
+      }
+
+      .footer {
+        font-size: small;
+      }
+
+      emph {
+        font-weight: bold;
+      }
     </style>
 
     <title>GJP COVID Estimates</title>
   </head>
   <body>
-    <div class='header'>
-      By April 2021, it is forecast that COVID-19 will lead to 
-    </div>
+      <div class="header">
+      <p>By April 2021, it is forecast that COVID-19 will lead to </p>
+      </div>
 
-    <div class='stats'>
-      <p>12 million cases and 160 thousand deaths in the United States</p>
+      <div class="stats">
+        <p><emph>12 million</emph> cases and <emph>160 thousand</emph> deaths in the United States</p>
 
-      <p>250 million cases and 2.8 million deaths worldwide</p>
-    </div>
+        <p><emph>250 million</emph> cases and <emph>2.8 million</emph> deaths worldwide</p>
+      </div>
 
-    <div class='footer'>
-      <p>These estimates come from averaging <a href="https://goodjudgment.io/covid/dashboard/">Good Judgement Project's dashboard</a>.</p>
-
-      <p>You can read a synopsis of why the Good Judgement Project's forecasts are particularly worth paying attention to <a href="https://aiimpacts.org/evidence-on-good-forecasting-practices-from-the-good-judgment-project/">here</a>.</p>
-    </div>
+      <div class="footer">
+      <p>These estimates come from averaging the <a href="https://goodjudgment.io/covid/dashboard/">Good Judgement Project's dashboard</a>.</p>
+      
+      <p>They will be updated on a daily basis.</p>
+        
+        <p>The Good Judgement Project has <a href="https://aiimpacts.org/evidence-on-good-forecasting-practices-from-the-good-judgment-project/">a track record of producing better, more accurate forecasts than anyone else</a>.</p>
+        
+        <p>In the face of an exponentially-growing threat, forecasts - while uncertain - are <a href="https://andyljones.com/posts/headlines.html">far more informative than today's case count and death toll</a>.</p>
+      </div>
+    
   </body>
 </html>
