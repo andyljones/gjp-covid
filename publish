@@ -7,4 +7,4 @@ python render.py
 
 git commit -am "Update"
 git push
-git checkout gh-pages && git merge master && git push && git checkout master
+git checkout gh-pages && git merge --no-edit master && git push && git checkout master
