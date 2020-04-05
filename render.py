@@ -61,7 +61,10 @@ def render():
     template = jinja2.Template(Path('template.j2').read_text())
 
     central = central_estimates().apply(prettify)
-    rendered = template.render(**central, pub_date=pub_date())
+    rendered = template.render(
+                **central, 
+                pub_date=pub_date(), 
+                render_date=pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S'))
 
     Path('index.html').write_text(rendered)
 

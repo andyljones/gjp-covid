@@ -1,8 +1,10 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 
+eval "$(conda shell.bash hook)"
 conda activate ./.env 
 python render.py 
 
 git commit -am "Update"
+git push
 git checkout gh-pages && git merge master && git push && git checkout master
