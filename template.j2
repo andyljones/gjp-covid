@@ -8,6 +8,15 @@
 
     <link rel="icon" href="/favicon.ico">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48268620-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-48268620-1');
+    </script>
+
     <style>
       html {
         height: 100%;
@@ -41,23 +50,27 @@
       }
     </style>
 
+    <meta property="og:title" content="COVID Forecasts">
+    <meta property="og:description" content="{{world_cases}} cases by next April">
+    <meta name="twitter:card" content="summary">
+
     <title>GJP COVID Estimates</title>
   </head>
   <body>
       <div class="header">
-      <p>By April 2021, it is forecast that COVID-19 will lead to </p>
+      <p>By next April, it is forecast that COVID-19 will lead to </p>
       </div>
 
       <div class="stats">
-        <p><emph>12 million</emph> cases and <emph>160 thousand</emph> deaths in the United States</p>
+        <p><emph>{{us_cases}}</emph> cases and <emph>{{us_deaths}}</emph> deaths in the United States</p>
 
-        <p><emph>250 million</emph> cases and <emph>2.8 million</emph> deaths worldwide</p>
+        <p><emph>{{world_cases}}</emph> cases and <emph>{{world_deaths}}</emph> deaths worldwide</p>
       </div>
 
       <div class="footer">
       <p>These estimates come from averaging the <a href="https://goodjudgment.io/covid/dashboard/">Good Judgement Project's dashboard</a>.</p>
       
-      <p>They will be updated on a daily basis.</p>
+      <p>They are updated on a daily basis.</p>
         
         <p>The Good Judgement Project has <a href="https://aiimpacts.org/evidence-on-good-forecasting-practices-from-the-good-judgment-project/">a track record of producing better, more accurate forecasts than anyone else</a>.</p>
         
