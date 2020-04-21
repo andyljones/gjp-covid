@@ -39,6 +39,12 @@ def pub_date():
     datestr = soup.select_one('table td span span').text.strip()
     return pd.to_datetime(re.sub(r'\s+', ' ', datestr)).strftime('%Y/%m/%d')
 
+def width(style):
+    if '%' in style:
+        return int(style[6:-2])/100
+    else:
+        return 0.
+
 def fetch():
     r = requests.get(URL)
     r.raise_for_status()
@@ -48,7 +54,7 @@ def fetch():
         'field': BOUNDARIES.index.repeat(5),
         'lower': BOUNDARIES.values[:, :-1].flatten(),
         'upper': BOUNDARIES.values[:, 1:].flatten(),
-        'fractions': [int(t.attrs['style'][6:-2])/100 for t in soup.select('.prob')]})
+        'fractions': [width(t.attrs['style']) for t in soup.select('.prob')][:20]})
 
 def central_estimates():
     df = fetch()
